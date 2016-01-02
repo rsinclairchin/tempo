@@ -7,7 +7,6 @@ class CreateUsers < ActiveRecord::Migration
 
       t.timestamps null: false
 
-      t.references :project
     end
   end
 end
