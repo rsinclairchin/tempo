@@ -4,7 +4,8 @@
 
 <strong>Your Projects</strong>
 <ul>
-  <% @user.projects each do |project|%>
+  <% @user.projects.each do |project|%>
+    <li><%= project.name %></li>
   <% end %>
 </ul>
 
