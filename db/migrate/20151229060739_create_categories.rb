@@ -6,6 +6,8 @@ class CreateCategories < ActiveRecord::Migration
       t.integer :time
 
       t.timestamps null: false
+
+      t.references :project
     end
   end
 end
