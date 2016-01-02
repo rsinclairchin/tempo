@@ -1,6 +1,15 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
+  def login
+    @user = User.find_by_username(params[:username])
+    if @user.password == params[:password]
+      give token
+    else
+      redirect_to root_path
+    end
+  end
+
   # GET /users
   # GET /users.json
   def index
@@ -22,7 +31,8 @@ class UsersController < ApplicationController
 
   # POST /users
   def create
-    @user = User.new(user_params)
+    @user = User.new(params[:user])
+    @user.password = params[:password]
 
     respond_to do |format|
       if @user.save
