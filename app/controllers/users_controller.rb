@@ -1,15 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
-  def login
-    @user = User.find_by_username(params[:username])
-    if @user.password == params[:password]
-      give token
-    else
-      redirect_to root_path
-    end
-  end
-
   # GET /users
   # GET /users.json
   def index
